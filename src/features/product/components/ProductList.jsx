@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { increment, incrementAsync, selectCount } from "./productListSlice";
+import { increment, incrementAsync, selectCount } from "../productListSlice";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/20/solid";
 
 import {
@@ -23,6 +23,7 @@ import {
   PlusIcon,
   Squares2X2Icon,
 } from "@heroicons/react/20/solid";
+import { Link } from "react-router-dom";
 
 export default function ProductList() {
   const count = useSelector(selectCount);
@@ -394,13 +395,13 @@ export default function ProductList() {
                           <div className="mt-4 flex justify-between">
                             <div>
                               <h3 className="text-sm text-gray-700">
-                                <a href={product.href}>
+                                <Link to={"/productDetail"}>
                                   <span
                                     aria-hidden="true"
                                     className="absolute inset-0"
                                   />
                                   {product.name}
-                                </a>
+                                </Link>
                               </h3>
                               <p className="mt-1 text-sm text-gray-500">
                                 {product.color}

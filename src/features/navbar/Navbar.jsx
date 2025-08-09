@@ -12,6 +12,7 @@ import {
   XMarkIcon,
   ShoppingCartIcon,
 } from "@heroicons/react/24/outline";
+import { Link } from "react-router-dom";
 
 const user = {
   name: "Tom Cook",
@@ -78,21 +79,23 @@ const Navbar = ({ children }) => {
               </div>
               <div className="hidden md:block">
                 <div className="ml-4 flex items-center md:ml-6">
-                  <button
-                    type="button"
-                    className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden"
-                  >
-                    <span className="absolute -inset-1.5" />
-                    <span className="sr-only">shoping cart</span>
-                    <ShoppingCartIcon
-                      aria-hidden="true"
-                      className="size-6 z-50"
-                    />
-                    <span className="inline-flex items-center absolute rounded-md left-3 -top-3  bg-pink-50 px-2 py-1  text-xs font-medium text-pink-700 ring-1 ring-pink-700/10 ring-inset">
-                      3
-                    </span>
-                  </button>
-
+                  <Link to={"/cart"}>
+                    <span className="sr-only">View shopping cart</span>
+                    <button
+                      type="button"
+                      className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden"
+                    >
+                      <span className="absolute -inset-1.5" />
+                      <span className="sr-only">shoping cart</span>
+                      <ShoppingCartIcon
+                        aria-hidden="true"
+                        className="size-6 z-50"
+                      />
+                      <span className="inline-flex items-center absolute rounded-md left-3 -top-3  bg-pink-50 px-2 py-1  text-xs font-medium text-pink-700 ring-1 ring-pink-700/10 ring-inset">
+                        3
+                      </span>
+                    </button>
+                  </Link>
                   {/* Profile dropdown */}
                   <Menu as="div" className="relative ml-3">
                     <MenuButton className="relative flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-hidden focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-gray-800">
@@ -177,17 +180,20 @@ const Navbar = ({ children }) => {
                     {user.email}
                   </div>
                 </div>
-                <button
-                  type="button"
-                  className="relative ml-auto shrink-0 rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden"
-                >
-                  <span className="absolute -inset-1.5" />
-                  <span className="sr-only">View notifications</span>
-                  <ShoppingCartIcon aria-hidden="true" className="size-6" />
-                  <span className="inline-flex items-center absolute rounded-md left-3 -top-3  bg-pink-50 px-2 py-1  text-xs font-medium text-pink-700 ring-1 ring-pink-700/10 ring-inset">
-                    3
-                  </span>
-                </button>
+                <Link to={"/cart"}>
+                  <span className="sr-only">View shopping cart</span>
+                  <button
+                    type="button"
+                    className="relative ml-auto shrink-0 rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800 focus:outline-hidden"
+                  >
+                    <span className="absolute -inset-1.5" />
+                    <span className="sr-only">View notifications</span>
+                    <ShoppingCartIcon aria-hidden="true" className="size-6" />
+                    <span className="inline-flex items-center absolute rounded-md left-3 -top-3  bg-pink-50 px-2 py-1  text-xs font-medium text-pink-700 ring-1 ring-pink-700/10 ring-inset">
+                      3
+                    </span>
+                  </button>
+                </Link>
               </div>
               <div className="mt-3 space-y-1 px-2">
                 {userNavigation.map((item) => (
